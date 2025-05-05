@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/pagy">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.7.0.799589101917">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.8.0.799744102772">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 3.7.0">
+    <meta name="generator" content="Retype 3.8.0">
 
     <!-- Primary Meta Tags -->
     <title>Upgrade to 43+ &#128154; Pagy</title>
@@ -31,12 +31,12 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.7.0.799589101917" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.8.0.799744102772" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.7.0.799589101917" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.7.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.7.0.799589101917" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.7.0.799589101917" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.8.0.799744102772" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.8.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.8.0.799744102772" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.8.0.799744102772" defer></script>
 
     <!-- ai_widget_start -->
     <script>
@@ -169,7 +169,7 @@
                                 <img class="max-h-10 dark:hidden md:inline-block" src="../../assets/images/pagy-the-frog.png">
                                 <img class="max-h-10 hidden dark:inline-block" src="../../assets/images/pagy-the-frog.png">
                             </span>
-                            <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">Pagy</span>
+                            <span class="dark:text-white font-bold line-clamp-1 md:line-clamp-2">Pagy</span>
                         </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">10.0.0</span>
                     </div>
         
@@ -262,7 +262,7 @@
     
         <div class="container relative flex bg-white">
             <!-- Sidebar Skeleton -->
-            <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-gray-100 border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
+            <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-white border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
             
                 <div class="flex items-center h-16 px-6">
                     <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter">
@@ -418,7 +418,7 @@ require a quite different way to use it.</p>
 </doc-anchor-target>
 <ul>
 <li>Rename your <code v-pre>pagy.rb</code> initializer as <code v-pre>pagy-old.rb</code>, and add the new, concise
-<a href="../../toolbox/initializer/#initializer-file">pagy.rb</a> initializer in its place.</li>
+<a href="../../toolbox/configurators/#initializer-file">pagy.rb</a> initializer in its place.</li>
 <li>Search the <code v-pre>pagy-old.rb</code> for code-occurrences of <code v-pre>Pagy::DEFAULT[...]</code> and move them to the new <code v-pre>pagy.js</code> (remove them from the <code v-pre>pagy-old.rb</code>)</li>
 <li>Replace all the <code v-pre>Pagy::DEFAULT[...]</code> entries just added to the new <code v-pre>pagy.rb</code> with <code v-pre>Pagy.options[...]</code>.</li>
 </ul>
@@ -433,8 +433,8 @@ as needed.</em></p>
 <p>The new version doesn&#x27;t use the extras anymore. They got integrated in the core code, and a few have been discontinued.</p>
 <ul>
 <li>Search any active <code v-pre>require 'pagy/extras/*</code> in the <code v-pre>pagy-old.rb</code> file</li>
-<li>When you find one, follow the specific section to upgrade your code.</li>
-<li>Remove each entry from the <code v-pre>pagy-old.rb</code> as you proceed.</li>
+<li>When you find one, follow the specific section below to upgrade your code.</li>
+<li>As you proceed, remove each entry from the <code v-pre>pagy-old.rb</code>.</li>
 </ul>
 <details>
   <summary><h4 style="display: inline-block">Extras...</h4></summary>
@@ -532,19 +532,16 @@ as needed.</em></p>
 <td>discontinued: implement manually</td>
 </tr>
 <tr>
-<td>[*] <code v-pre>size: ...</code></td>
-<td><code v-pre>slots: ...</code></td>
+<td><code v-pre>size: ...</code><br/><code v-pre>Pagy.options[:size] = ...</code></td>
+<td><code v-pre>slots: ...</code><br/><code v-pre>Pagy.options[:slots] = ...</code></td>
 </tr>
 <tr>
-<td>[*] <code v-pre>ends: false</code></td>
-<td><code v-pre>compact: true</code></td>
+<td><code v-pre>ends: false</code><br/><code v-pre>Pagy.options[:end] = false</code></td>
+<td><code v-pre>compact: true</code><br/><code v-pre>Pagy.options[:compact] = true</code></td>
 </tr>
 </tbody>
 </table>
 </div>
-<ul>
-<li>[*] Replace also any existent related <code v-pre>Pagy.options[...]</code> in the <code v-pre>pagy.rb</code> file.</li>
-</ul>
    </doc-panel>
    <doc-panel id="boostrap" collapsed>
        <template #title><code v-pre>boostrap</code></template>
@@ -573,18 +570,17 @@ as needed.</em></p>
 <td><code v-pre>@pagy.input_nav_js(:boostrap, ...)</code></td>
 </tr>
 <tr>
-<td>[*] <code v-pre>size: ...</code></td>
-<td><code v-pre>slots: ...</code></td>
+<td><code v-pre>size: ...</code><br/><code v-pre>Pagy.options[:size] = ...</code></td>
+<td><code v-pre>slots: ...</code><br/><code v-pre>Pagy.options[:slots] = ...</code></td>
 </tr>
 <tr>
-<td>[*] <code v-pre>ends: false</code></td>
-<td><code v-pre>compact: true</code></td>
+<td><code v-pre>ends: false</code><br/><code v-pre>Pagy.options[:end] = false</code></td>
+<td><code v-pre>compact: true</code><br/><code v-pre>Pagy.options[:compact] = true</code></td>
 </tr>
 </tbody>
 </table>
 </div>
 <ul>
-<li>[*] Replace also any existent related <code v-pre>Pagy.options[...]</code> in the <code v-pre>pagy.rb</code> file.</li>
 <li><strong>FYI</strong>: The redundant <code v-pre>pagy-bootstrap</code> class has been removed from the <code v-pre>input_nav_js</code> body.</li>
 </ul>
    </doc-panel>
@@ -615,18 +611,17 @@ as needed.</em></p>
 <td><code v-pre>@pagy.input_nav_js(:bulma, ...)</code></td>
 </tr>
 <tr>
-<td>[*] <code v-pre>size: ...</code></td>
-<td><code v-pre>slots: ...</code></td>
+<td><code v-pre>size: ...</code><br/><code v-pre>Pagy.options[:size] = ...</code></td>
+<td><code v-pre>slots: ...</code><br/><code v-pre>Pagy.options[:slots] = ...</code></td>
 </tr>
 <tr>
-<td>[*] <code v-pre>ends: false</code></td>
-<td><code v-pre>compact: true</code></td>
+<td><code v-pre>ends: false</code><br/><code v-pre>Pagy.options[:end] = false</code></td>
+<td><code v-pre>compact: true</code><br/><code v-pre>Pagy.options[:compact] = true</code></td>
 </tr>
 </tbody>
 </table>
 </div>
 <ul>
-<li>[*] Replace also any existent related <code v-pre>Pagy.options[...]</code> in the <code v-pre>pagy.rb</code> file.</li>
 <li><strong>FYI</strong>: The <code v-pre>is-centered</code> CSS class has been removed.</li>
 <li><strong>FYI</strong>: The previous/next links have been moved at the beginning and end of the pagination.</li>
 </ul>
@@ -647,15 +642,12 @@ as needed.</em></p>
 <td><code v-pre>pagy(:countless, ...)</code></td>
 </tr>
 <tr>
-<td>[*] <code v-pre>countless_minimal: true</code></td>
-<td><code v-pre>headless: true</code></td>
+<td><code v-pre>countless_minimal: true</code><br/><code v-pre>Pagy.options[:countless_minimal] = true</code></td>
+<td><code v-pre>headless: true</code><br/><code v-pre>Pagy.options[:headless] = true</code></td>
 </tr>
 </tbody>
 </table>
 </div>
-<ul>
-<li>[*] Replace also any existent related <code v-pre>Pagy.options[...]</code> in the <code v-pre>pagy.rb</code> file.</li>
-</ul>
    </doc-panel>
    <doc-panel id="calendar" collapsed>
        <template #title><code v-pre>calendar</code></template>
@@ -720,18 +712,17 @@ as needed.</em></p>
 <td><code v-pre>pagy(:elasticsearch_rails, ...)</code></td>
 </tr>
 <tr>
-<td>[*] <code v-pre>elasticsearch_rails_search: ...</code></td>
-<td><code v-pre>search_method: ...</code></td>
+<td><code v-pre>elasticsearch_rails_search: ...</code><br/><code v-pre>Pagy.options[:elasticsearch_rails_search] = ...</code></td>
+<td><code v-pre>search_method: ...</code><br/><code v-pre>Pagy.options[:search_method] = ...</code></td>
 </tr>
 </tbody>
 </table>
 </div>
 <ul>
-<li>[*] Replace also any existent related <code v-pre>Pagy.options[...]</code> in the <code v-pre>pagy.rb</code> file.</li>
 <li><strong>Customization of the <code v-pre>pagy_search</code> method name has been discontinued:</strong>
 <ul>
 <li>Remove any existing <code v-pre>:elasticsearch_rails_pagy_search</code> variable from your code.</li>
-<li>Replace custom method names with the standard <code v-pre>pagy_search</code> method.</li>
+<li>Replace your custom method name with the standard <code v-pre>pagy_search</code> method.</li>
 </ul>
 </li>
 </ul>
@@ -759,18 +750,17 @@ as needed.</em></p>
 <td><code v-pre>pagy(:meilisearch, ...)</code></td>
 </tr>
 <tr>
-<td>[*] <code v-pre>meilisearch_search: ...</code></td>
-<td><code v-pre>search_method: ...</code></td>
+<td><code v-pre>meilisearch_search: ...</code><br/><code v-pre>Pagy.options[:meilisearch_search] = ...</code></td>
+<td><code v-pre>search_method: ...</code><br/><code v-pre>Pagy.options[:search_method] = ...</code></td>
 </tr>
 </tbody>
 </table>
 </div>
 <ul>
-<li>[*] Replace also any existent related <code v-pre>Pagy.options[...]</code> in the <code v-pre>pagy.rb</code> file.</li>
 <li><strong>Customization of the <code v-pre>pagy_search</code> method name has been discontinued:</strong>
 <ul>
 <li>Remove any existing <code v-pre>:meilisearch_pagy_search</code> variable from your code.</li>
-<li>Replace custom method names with the standard <code v-pre>pagy_search</code> method.</li>
+<li>Replace your custom method name with the standard <code v-pre>pagy_search</code> method.</li>
 </ul>
 </li>
 </ul>
@@ -798,18 +788,17 @@ as needed.</em></p>
 <td><code v-pre>pagy(:searchkick, ...)</code></td>
 </tr>
 <tr>
-<td>[*] <code v-pre>searchkick_search: ...</code></td>
-<td><code v-pre>search_method: ...</code></td>
+<td><code v-pre>searchkick_search: ...</code><br/><code v-pre>Pagy.options[:searchkick_search] = ...</code></td>
+<td><code v-pre>search_method: ...</code><br/><code v-pre>Pagy.options[:search_method] = ...</code></td>
 </tr>
 </tbody>
 </table>
 </div>
 <ul>
-<li>[*] Replace also any existent related <code v-pre>Pagy.options[...]</code> in the <code v-pre>pagy.rb</code> file.</li>
 <li><strong>Customization of the <code v-pre>pagy_search</code> method name has been discontinued:</strong>
 <ul>
 <li>Remove any existing <code v-pre>:searchkick_pagy_search</code> variable from your code.</li>
-<li>Replace custom method names with the standard <code v-pre>pagy_search</code> method.</li>
+<li>Replace your custom method name with the standard <code v-pre>pagy_search</code> method.</li>
 </ul>
 </li>
 </ul>
@@ -834,15 +823,12 @@ as needed.</em></p>
 <td><code v-pre>response.headers.merge!(@pagy.headers_hash)</code></td>
 </tr>
 <tr>
-<td>[*] <code v-pre>headers: ...</code></td>
-<td><code v-pre>headers_map: ...</code></td>
+<td><code v-pre>headers: ...</code><br/><code v-pre>Pagy.options[:headers] = ...</code></td>
+<td><code v-pre>headers_map: ...</code><br/><code v-pre>Pagy.options[:headers_map] = ...</code></td>
 </tr>
 </tbody>
 </table>
 </div>
-<ul>
-<li>[*] Replace also any existent related <code v-pre>Pagy.options[...]</code> in the <code v-pre>pagy.rb</code> file.</li>
-</ul>
    </doc-panel>
    <doc-panel id="jsonapi" collapsed>
        <template #title><code v-pre>jsonapi</code></template>
@@ -952,8 +938,8 @@ return value is ignored. For example: <code v-pre>-&gt;(attrs) { attrs[:created_
 <td><code v-pre>@pagy.data_hash(...)</code></td>
 </tr>
 <tr>
-<td>[*] <code v-pre>metadata: ...</code></td>
-<td><code v-pre>data_keys: ...</code></td>
+<td><code v-pre>metadata: ...</code><br/><code v-pre>Pagy.options[:metadata] = ...</code></td>
+<td><code v-pre>data_keys: ...</code><br/><code v-pre>Pagy.options[:data_keys] = ...</code></td>
 </tr>
 <tr>
 <td>data_key -&gt; <code v-pre>:scaffold_url</code></td>
@@ -962,9 +948,6 @@ return value is ignored. For example: <code v-pre>-&gt;(attrs) { attrs[:created_
 </tbody>
 </table>
 </div>
-<ul>
-<li>[*] Replace also any existent related <code v-pre>Pagy.options[...]</code> in the <code v-pre>pagy.rb</code> file.</li>
-</ul>
    </doc-panel>
    <doc-panel id="overflow" collapsed>
        <template #title><code v-pre>overflow</code></template>
@@ -1027,7 +1010,7 @@ already seen), they can simply click the link.</li>
        <template #title><code v-pre>gearbox</code> <em>(discontinued)</em></template>
 <ul>
 <li>Due to extensive overwriting for minimal benefit, you can safely remove this feature from your app without noticeable impact.
-Remove all <code v-pre>/gearbox/</code> related.</li>
+Remove all <code v-pre>/gearbox/</code> related code.</li>
 </ul>
    </doc-panel>
    <doc-panel id="size-discontinued" collapsed>
@@ -1147,7 +1130,7 @@ querify = -&gt;(q) { q.except!('not_useful').merge!('custom' =&gt; 'useful') }</
    <doc-panel id="replace-the-prev-abbreviated-naming" collapsed>
        <template #title>Replace the <code v-pre>*prev*</code> abbreviated naming</template>
 <ul>
-<li>Use <code v-pre>*previous*</code> in all the option, accessor, methods, etc.</li>
+<li>Use <code v-pre>*previous*</code> in all the options, accessors, methods, etc.</li>
 </ul>
 <p><em>Because we don&#x27;t use abbreviated words anymore</em></p>
    </doc-panel>
@@ -1162,7 +1145,7 @@ querify = -&gt;(q) { q.except!('not_useful').merge!('custom' =&gt; 'useful') }</
    <doc-panel id="javascript" collapsed>
        <template #title>Javascript</template>
 <ul>
-<li>If your <code v-pre>pagy-old.rb</code> contains any JavaScript setup, it sould still work, so you can move it to the <code v-pre>pagy.rb</code> file, however, consider using the new <a href="../../resources/javascript/#2-make-the-file-available-to-your-app">simpler recommented way</a>.</li>
+<li>If your <code v-pre>pagy-old.rb</code> contains any JavaScript setup, it should still work, so you can move it to the <code v-pre>pagy.rb</code> file, however, for apps with builders, consider using the new <a href="../../resources/javascript/#2-make-the-file-available-to-your-app">Pagy.sync_javascript</a>.</li>
 </ul>
    </doc-panel>
    <doc-panel id="pagy-i18n-and-locale-files" collapsed>
@@ -1179,11 +1162,11 @@ then uncomment and set up the relevant <code v-pre>Pagy::I18n</code> lookup sect
        <template #title>Overriding</template>
 <ul>
 <li>Overriding methods in controllers/helpers is not possible or discouraged.</li>
-<li>The cleanest approach for local overriding is via Ruby refinements and the initializer for global override.</li>
+<li>The cleanest approach for local overriding is via Ruby refinements or the initializer for global override.</li>
 <li>Check the <a href="../how-to/#override-pagy-methods">How To Override Pagy Method</a>.</li>
 <li>If your <code v-pre>pagy-old.rb</code> contains overridden methods, copy the methods over to the <code v-pre>pagy.rb</code> initializer, however, consider that:
 <ul>
-<li>Internal Pagy protected methods have been extensively refactored, frequently renamed, and occasionally removed.</li>
+<li>Internal Pagy protected methods have been extensively refactored, likely renamed, and occasionally removed.</li>
 <li>You should reconcile internal overrides by reviewing the updated Pagy codebase.</li>
 </ul>
 </li>

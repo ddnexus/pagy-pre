@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/pagy">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.7.0.799589101917">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.8.0.799744102772">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 3.7.0">
+    <meta name="generator" content="Retype 3.8.0">
 
     <!-- Primary Meta Tags -->
     <title>How To &#128154; Pagy</title>
@@ -31,12 +31,12 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.7.0.799589101917" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.8.0.799744102772" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.7.0.799589101917" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.7.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.7.0.799589101917" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.7.0.799589101917" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.8.0.799744102772" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.8.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.8.0.799744102772" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.8.0.799744102772" defer></script>
 
     <!-- ai_widget_start -->
     <script>
@@ -169,7 +169,7 @@
                                 <img class="max-h-10 dark:hidden md:inline-block" src="../../assets/images/pagy-the-frog.png">
                                 <img class="max-h-10 hidden dark:inline-block" src="../../assets/images/pagy-the-frog.png">
                             </span>
-                            <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">Pagy</span>
+                            <span class="dark:text-white font-bold line-clamp-1 md:line-clamp-2">Pagy</span>
                         </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">10.0.0</span>
                     </div>
         
@@ -262,7 +262,7 @@
     
         <div class="container relative flex bg-white">
             <!-- Sidebar Skeleton -->
-            <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-gray-100 border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
+            <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-white border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
             
                 <div class="flex items-center h-16 px-6">
                     <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter">
@@ -387,7 +387,7 @@
 <ul>
 <li>Use the <code v-pre>limit</code> option combined with the <code v-pre>:client_max_limit</code> option, which allows the client to request a <code v-pre>:limit</code> up to the
 specified <code v-pre>:client_max_limit</code>.</li>
-<li>Additionally, you can use the <a href="../../toolbox/methods/limit_tag_js/">limit_tag_js</a> helper to provide a UI
+<li>Additionally, you can use the <a href="../../toolbox/helpers/limit_tag_js/">limit_tag_js</a> helper to provide a UI
 selector to the user.</li>
 </ul>
 </li>
@@ -417,11 +417,11 @@ selector to the user.</li>
    </doc-panel>
    <doc-panel id="control-the-pagination-bar" collapsed>
        <template #title>Control the pagination bar</template>
-<p>Pagy provides <a href="../../toolbox/methods/series_nav/">series_nav</a> and <a href="../../toolbox/methods/series_nav_js/">series_nav_js</a> helpers for displaying a
+<p>Pagy provides <a href="../../toolbox/helpers/series_nav/">series_nav</a> and <a href="../../toolbox/helpers/series_nav_js/">series_nav_js</a> helpers for displaying a
 pagination bar.</p>
 <p>You can customize the number and position of page links in the navigation bar using:</p>
 <ul>
-<li>The <a href="../../toolbox/methods/series_nav/#options">:slots and :compact options</a>.</li>
+<li>The <a href="../../toolbox/helpers/series_nav/#options">:slots and :compact options</a>.</li>
 <li>Overriding the <code v-pre>series</code> method for full control over the pagination bar</li>
 </ul>
    </doc-panel>
@@ -442,7 +442,7 @@ method. For example:</p>
    <doc-panel id="customize-the-aria-labels" collapsed>
        <template #title>Customize the ARIA labels</template>
 <p>You can customize the <code v-pre>aria-label</code> attributes of any <code v-pre>*nav*</code> helper by providing a <code v-pre>:aria_label</code> string.</p>
-<p>See the <a href="../../toolbox/methods/#common-nav-options">:aria_label</a> option.</p>
+<p>See the <a href="../../toolbox/helpers/#common-nav-options">:aria_label</a> option.</p>
 <p>You can also replace the <code v-pre>pagy.aria_label.nav</code> strings in the dictionary, as well as the <code v-pre>pagy.aria_label.previous</code> and the
 <code v-pre>pagy.aria_label.next</code>.</p>
 <p>See <a href="../../resources/aria/">ARIA</a>.</p>
@@ -496,7 +496,7 @@ attribute selector and <code v-pre>!important</code>. Below is an example of ove
 <li>Note the name of the module where it is defined (e.g., <code v-pre>Pagy::...</code>).</li>
 </ul>
 <p>If you need assistance, ask in the <a href="https://github.com/ddnexus/pagy/discussions/categories/q-a">Q&amp;A discussions</a>.</p>
-<p>Copy and paste the original method in the <a href="../../toolbox/initializer/">Pagy Initializer</a></p>
+<p>Copy and paste the original method in the <a href="../../toolbox/configurators/">Pagy Initializer</a></p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">pagy.rb (initializer)</div>
 <pre class="language-ruby"><code v-pre class="language-ruby">require 'pagy/...' # path to the overridden method file
@@ -572,14 +572,14 @@ option</li>
 <p>Explore the following options:</p>
 <ul>
 <li><a href="../../toolbox/paginators/keyset/">:keyset paginator</a></li>
-<li><a href="../../toolbox/methods/headers_hash/">headers_hash helper</a></li>
+<li><a href="../../toolbox/helpers/headers_hash/">headers_hash helper</a></li>
 <li><a href="../../toolbox/paginators/#common-options">:client_max_limit option</a></li>
 <li><a href="../../toolbox/paginators/#common-options">:jsonapi option</a></li>
 </ul>
    </doc-panel>
    <doc-panel id="paginate-for-javascript-frameworks" collapsed>
        <template #title>Paginate for Javascript Frameworks</template>
-<p>You can send selected <code v-pre>@pagy</code> instance data to the client as JSON using the <a href="../../toolbox/methods/data_hash/">data_hash</a> helper,
+<p>You can send selected <code v-pre>@pagy</code> instance data to the client as JSON using the <a href="../../toolbox/helpers/data_hash/">data_hash</a> helper,
 including pagination metadata in your JSON response.</p>
    </doc-panel>
    <doc-panel id="paginate-search-platform-results" collapsed>

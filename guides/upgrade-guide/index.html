@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/pagy">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.8.0.799746466483">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.8.0.799748548294">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.8.0">
@@ -31,12 +31,12 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.8.0.799746466483" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.8.0.799748548294" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.8.0.799746466483" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.8.0.799748548294" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.8.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.8.0.799746466483" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.8.0.799746466483" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.8.0.799748548294" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.8.0.799748548294" defer></script>
 
     <!-- ai_widget_start -->
     <script>
@@ -850,7 +850,7 @@ as needed.</em></p>
 </div>
 <ul>
 <li><em>Notice that the <code v-pre>nil</code> links are now removed as the <code v-pre>JSON:API</code> specifications require.</em></li>
-<li>IMPORTANT: Enable the feature by explicitly setting the <code v-pre>jsonapi: true</code> option (initializer or <code v-pre>pagy</code> method).</li>
+<li>IMPORTANT: Enable the feature by explicitly setting the <code v-pre>jsonapi: true</code> option <em>(in the initializer or <code v-pre>pagy</code> method)</em>.</li>
 </ul>
    </doc-panel>
    <doc-panel id="keyset" collapsed>
@@ -919,7 +919,7 @@ return value is ignored. For example: <code v-pre>-&gt;(attrs) { attrs[:created_
 </table>
 </div>
 <ul>
-<li>Enable the feature by setting <code v-pre>client_max_limit: your_client_max_limit</code> option (initializer or <code v-pre>pagy</code> method).</li>
+<li>Enable the feature by setting <code v-pre>client_max_limit: your_client_max_limit</code> option <em>(in the initializer or <code v-pre>pagy</code> method)</em>.</li>
 </ul>
    </doc-panel>
    <doc-panel id="metadata" collapsed>
@@ -961,7 +961,7 @@ return value is ignored. For example: <code v-pre>-&gt;(attrs) { attrs[:created_
 <li>The legacy <code v-pre>pagy.overflow?</code> is now the <code v-pre>pagy.in_range?</code> method, which checks/returns the opposite state/boolean.</li>
 <li>The <code v-pre>overflow: :last_page</code> behavior has been discontinued because it provides nearly no benefit:
 <ul>
-<li><strong>Why there is little benefit in serving the last page</strong>
+<li><strong>Why there is little benefit in serving the last page?</strong>
 <ul>
 <li>The navigation bar for an out-of-range request is rendered identically to that of the last page.</li>
 <li>The only difference is that there are no records/results to display.</li>
@@ -990,7 +990,7 @@ already seen), they can simply click the link.</li>
    <doc-panel id="standalone" collapsed>
        <template #title><code v-pre>standalone</code></template>
 <ul>
-<li><p>Replace the <code v-pre>:url</code> variable with the <code v-pre>:request</code> option hash. For example:</p>
+<li><p>Replace the <code v-pre>:url</code> variable with the <code v-pre>:request</code> <a href="../../toolbox/paginators/#common-options">Common option</a> hash. For example:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-ruby"><code v-pre class="language-ruby">request: { base_url: 'http://www.example.com',
            path:     '/path',

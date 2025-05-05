@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/pagy">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.8.0.799744102772">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.8.0.799746274742">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.8.0">
@@ -31,12 +31,12 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../../resources/css/retype.css?v=3.8.0.799744102772" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=3.8.0.799746274742" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.8.0.799744102772" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.8.0.799746274742" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.8.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.8.0.799744102772" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.8.0.799744102772" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.8.0.799746274742" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.8.0.799746274742" defer></script>
 
     <!-- ai_widget_start -->
     <script>
@@ -567,6 +567,14 @@ end</code></pre>
 <p>This is the optional configuration for the core <code v-pre>:offset</code> paginator. If omitted a default one will be created. It is always used,
 regardless of the <code v-pre>:disabled</code> flag value.</p>
 <p>It is not subject to the restrictions mentioned in the <doc-anchor-trigger to="#calendar-configuration">Calendar configuration</doc-anchor-trigger>.</p>
+   </doc-panel>
+   <doc-panel id="localization" collapsed>
+       <template #title>Localization</template>
+<p>Pagy provides the calendar localization obly for <code v-pre>en</code> locales. For non-en locales pagy requires the <code v-pre>rails-i18n</code> to be installed.</p>
+<p>Pass the locales that your app uses to the method <code v-pre>localize_with_rails_i18n_gem</code> in the <a href="../../configurators/#initializer-file">pagy.rb initializer</a>:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-ruby"><code v-pre class="language-ruby">Pagy::Calendar.localize_with_rails_i18n_gem(*your_locales)</code></pre>
+</doc-codeblock></div>
    </doc-panel>
    <doc-panel id="caveats" collapsed>
        <template #title>Caveats</template>

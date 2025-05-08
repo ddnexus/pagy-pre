@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/pagy">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.8.0.799748548294">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.8.1.799987025481">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 3.8.0">
+    <meta name="generator" content="Retype 3.8.1">
 
     <!-- Primary Meta Tags -->
     <title>How To &#128154; Pagy</title>
@@ -31,12 +31,12 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.8.0.799748548294" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.8.1.799987025481" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.8.0.799748548294" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.8.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.8.0.799748548294" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.8.0.799748548294" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.8.1.799987025481" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.8.1" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.8.1.799987025481" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.8.1.799987025481" defer></script>
 
     <!-- ai_widget_start -->
     <script>
@@ -124,7 +124,7 @@
       .compact-dl div:hover {
         background-color: rgba(100, 100, 100, 0.2);
       }
-      .raised {
+      .raised, .raised-text {
         padding: .5em !important;
         margin: .5em auto;
         display: table;
@@ -132,6 +132,10 @@
         box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.2);
         border: 1px solid rgba(200, 200, 200, 0.1);
         background-color: rgba(200, 200, 200, 0.04);
+      }
+      .raised-text {
+        padding: 1.5rem !important;
+        margin-bottom: 2rem !important;
       }
       .raised hr {
         margin: .5em !important;
@@ -170,7 +174,7 @@
                                 <img class="max-h-10 hidden dark:inline-block" src="../../assets/images/pagy-the-frog.png">
                             </span>
                             <span class="dark:text-white font-bold line-clamp-1 md:line-clamp-2">Pagy</span>
-                        </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">10.0.0</span>
+                        </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">43.0.0</span>
                     </div>
         
                     <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
@@ -373,22 +377,21 @@
 <doc-panels>
    <doc-panel id="choose-the-right-pagination-technique" collapsed>
        <template #title>Choose the right pagination technique</template>
-<p><a href="https://gurubase.io/g/pagy/choose-between-pagy-offset-countless-keyset">Pagy AI answer</a></p>
+<p><a href="https://gurubase.io/g/pagy/choose-between-pagy-offset-countless-keyset-keynav">Pagy AI answer</a></p>
    </doc-panel>
    <doc-panel id="control-the-items-per-page" collapsed>
        <template #title>Control the items per page</template>
 <ul>
-<li><strong>Server side</strong>
+<li><strong>Fixed</strong>
 <ul>
-<li>Use the <code v-pre>:limit</code> option.</li>
+<li>Use the <code v-pre>:limit</code> option to set the number of items to serve with each page.</li>
 </ul>
 </li>
-<li><strong>Client Side</strong>
+<li><strong>Requestable</strong>
 <ul>
-<li>Use the <code v-pre>limit</code> option combined with the <code v-pre>:client_max_limit</code> option, which allows the client to request a <code v-pre>:limit</code> up to the
-specified <code v-pre>:client_max_limit</code>.</li>
-<li>Additionally, you can use the <a href="../../toolbox/helpers/limit_tag_js/">limit_tag_js</a> helper to provide a UI
-selector to the user.</li>
+<li>Use the <code v-pre>limit</code> option combined with the <code v-pre>:client_max_limit</code> option, allowing the client to request a variable <code v-pre>:limit</code> up to
+the specified <code v-pre>:client_max_limit</code>.</li>
+<li>Additionally, you can use the <a href="../../toolbox/helpers/limit_tag_js/">limit_tag_js</a> helper to provide a UI selector to the user.</li>
 </ul>
 </li>
 </ul>
@@ -417,8 +420,8 @@ selector to the user.</li>
    </doc-panel>
    <doc-panel id="control-the-pagination-bar" collapsed>
        <template #title>Control the pagination bar</template>
-<p>Pagy provides <a href="../../toolbox/helpers/series_nav/">series_nav</a> and <a href="../../toolbox/helpers/series_nav_js/">series_nav_js</a> helpers for displaying a
-pagination bar.</p>
+<p>Pagy provides <a href="../../toolbox/helpers/series_nav/">series_nav</a> and <a href="../../toolbox/helpers/series_nav_js/">series_nav_js</a> helpers for
+displaying a pagination bar.</p>
 <p>You can customize the number and position of page links in the navigation bar using:</p>
 <ul>
 <li>The <a href="../../toolbox/helpers/series_nav/#options">:slots and :compact options</a>.</li>
@@ -480,8 +483,8 @@ method. For example:</p>
    </doc-panel>
    <doc-panel id="override-css-rules-in-element-style-attribute" collapsed>
        <template #title>Override CSS rules in element &quot;style&quot; attribute</template>
-<p>The <code v-pre>input_nav_js</code> and <code v-pre>limit_tag_js</code> use inline style attributes. You can override these rules in your stylesheet
-files using the <code v-pre>[style]</code>
+<p>The <code v-pre>input_nav_js</code> and <code v-pre>limit_tag_js</code> use inline style attributes. You can override these rules in your stylesheet files using the
+<code v-pre>[style]</code>
 attribute selector and <code v-pre>!important</code>. Below is an example of overriding the <code v-pre>width</code> of an <code v-pre>input</code> element:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-css"><code v-pre class="language-css">.pagy input[style] {
@@ -492,11 +495,11 @@ attribute selector and <code v-pre>!important</code>. Below is an example of ove
    <doc-panel id="override-pagy-methods" collapsed>
        <template #title>Override pagy methods</template>
 <ul>
-<li>Identify its path in the repository (e.g., &#x27;pagy/...&#x27;).</li>
+<li>Identify its path in the gem <code v-pre>lib</code> dir (e.g., &#x27;pagy/...&#x27;).</li>
 <li>Note the name of the module where it is defined (e.g., <code v-pre>Pagy::...</code>).</li>
 </ul>
 <p>If you need assistance, ask in the <a href="https://github.com/ddnexus/pagy/discussions/categories/q-a">Q&amp;A discussions</a>.</p>
-<p>Copy and paste the original method in the <a href="../../toolbox/configurators/">Pagy Initializer</a></p>
+<p>Copy and paste the original method in the <a href="../../resources/initializer/">Pagy Initializer</a></p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">pagy.rb (initializer)</div>
 <pre class="language-ruby"><code v-pre class="language-ruby">require 'pagy/...' # path to the overridden method file
@@ -542,7 +545,7 @@ option</li>
 </li>
 <li><strong>Custom scope/count</strong>
 <ul>
-<li>The default pagy <code v-pre>collection.count(:all)</code> may not get the actual count:</li>
+<li>If the default pagy doesn&#x27;t get the right count:</li>
 </ul>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">controller</div>
@@ -671,13 +674,13 @@ of the above logic.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-ruby"><code v-pre class="language-ruby">
 def index # controller action
-  @pagy_stars, @stars     = pagy(:offset, Star.all, page_key: :page_stars)
-  @pagy_nebulae, @nebulae = pagy(:offset, Nebula.all, page_key: :page_nebulae)
+  @pagy_stars, @stars     = pagy(:offset, Star.all, page_key: 'page_stars')
+  @pagy_nebulae, @nebulae = pagy(:offset, Nebula.all, page_key: 'page_nebulae')
 end</code></pre>
 </doc-codeblock></div>
    </doc-panel>
-   <doc-panel id="paginate-only-max-pages-regardless-the-count" collapsed>
-       <template #title>Paginate only max_pages, regardless the count</template>
+   <doc-panel id="paginate-only-max-pages-regardless-of-the-count" collapsed>
+       <template #title>Paginate only max_pages, regardless of the count</template>
 <p>See <a href="../../toolbox/paginators/#common-options">:max_pages</a> option.</p>
    </doc-panel>
    <doc-panel id="paginate-collections-with-metadata" collapsed>
@@ -727,7 +730,7 @@ rendered... or maybe you don&#x27;t. If you don&#x27;t:</p>
 <li><a href="../../toolbox/paginators/keynav_js/">:keynav_js</a></li>
 </ul>
 </li>
-<li>Consider the <code v-pre>*_nav_js</code> tags: they are a few orders of magnitute faster.
+<li>Consider the <code v-pre>series_nav_js</code> and <code v-pre>input_nav_js</code> helpers: they are a few orders of magnitute faster.
 <ul>
 <li>Add the <code v-pre>oj</code> gem to your gemfile</li>
 </ul>
@@ -736,18 +739,18 @@ rendered... or maybe you don&#x27;t. If you don&#x27;t:</p>
    </doc-panel>
    <doc-panel id="ignore-brakeman-unescapedoutputs-false-positives-warnings" collapsed>
        <template #title>Ignore Brakeman UnescapedOutputs false positives warnings</template>
-<p>Pagy output html safe HTML, however, being an agnostic pagination gem it does not use the specific <code v-pre>html_safe</code> rails helper on its
+<p>Pagy output safe HTML, however being an agnostic pagination gem it does not use the specific <code v-pre>html_safe</code> rails helper for its
 output. That is noted by the <a href="https://github.com/presidentbeef/brakeman">Brakeman</a> gem, that will raise a warning.</p>
 <p>You can avoid the warning adding it to the <code v-pre>brakeman.ignore</code> file. More details <a href="https://github.com/ddnexus/pagy/issues/243">here</a>
 and <a href="https://github.com/presidentbeef/brakeman/issues/1519">here</a>.</p>
    </doc-panel>
    <doc-panel id="raise-pagy-rangeerror-exceptions" collapsed>
        <template #title>Raise Pagy::RangeError exceptions</template>
-<p>With the OFFSET pagination technique, it may happen that the users/clients paginate over the end of the record set or records go
-deleted and a user went to a stale page.</p>
+<p>With the OFFSET pagination technique, it may happen that the users/clients paginate after the end of the collection (when one or a
+few records got deleted) and a user went to a stale page.</p>
 <p>By default, Pagy doesn&#x27;t raise any exceptions for requesting an out-of-range page. Instead, it does not retrieve any records and
-serves the UI navigators as usual, so the user can visit a different page.</p>
-<p>Sometimes you may want to take a diffrent action, so you can set the <code v-pre>raise_range_error: true</code> option, <code v-pre>rescue</code> it and do whatever
+serves the navs as usual, so the user can visit a different page.</p>
+<p>Sometimes you may want to take a diffrent action, so you can set the option <code v-pre>raise_range_error: true</code>, <code v-pre>rescue</code> it and do whatever
 fits your app better. For example:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">controller</div>
@@ -903,7 +906,7 @@ pagination cycle, pass only the cache key as a param (which avoids sending the a
 <pre class="language-ruby"><code v-pre class="language-ruby">require 'digest'
 
 def filtered_action
-  options         = {}
+  options = {}
   if params[:filter_key] # already cached
     filters = session[params[:filter_key]]
   else

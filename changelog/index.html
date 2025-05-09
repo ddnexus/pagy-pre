@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/pagy">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.8.1.799987511164">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.8.1.800116580040">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.8.1">
@@ -31,87 +31,88 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../resources/css/retype.css?v=3.8.1.799987511164" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=3.8.1.800116580040" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.8.1.799987511164" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=3.8.1.800116580040" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=3.8.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.8.1.799987511164" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.8.1.800116580040" data-turbo-eval="false" defer></script>
 
     <!-- ai_widget_start -->
     <script>
       document.addEventListener('DOMContentLoaded', () => {
-        function loadWidget() {
-          const script   = document.createElement('script');
-          const hostname = window.location.hostname;
-          switch (hostname) {
-            case '127.0.0.1':
-              script.dataset.widgetId = '_rXLissYyqe-dJ9vGGGXzmJwavoW0GvuzQPEq5BZjP8';
-              // script.dataset.iconUrl  = 'http://localhost:5000/pagy/assets/images/pagy-the-frog.png';
-              break;
-            case 'localhost':
-              script.dataset.widgetId = 'djgBhRlpdH8b07oj0Gsaerz69Xfs0FXMuUluyOo2iR4';
-              script.dataset.iconUrl  = 'http://localhost:5000/pagy/assets/images/pagy-the-frog.png';
-              script.dataset.margins  = '{"bottom": "1.48rem", "right": "6rem"}';
-              break;
-            case 'ddnexus.github.io':
-              script.dataset.widgetId = 'HKtFSPZLGiAXOdBWS4rSAxEkqv8czIbJoQdMEwCqgEc';
-              script.dataset.iconUrl  = 'https://ddnexus.github.io/pagy/assets/images/pagy-the-frog.png';
-              script.dataset.margins  = '{"bottom": "1.48rem", "right": "6rem"}';
-              break;
-            default:
-              console.error('Pagy AI - Unknown hostname: ', hostname);
+      function loadWidget() {
+        const script   = document.createElement('script');
+        const hostname = window.location.hostname;
+        switch (hostname) {
+          case '127.0.0.1':
+            script.dataset.widgetId = '_rXLissYyqe-dJ9vGGGXzmJwavoW0GvuzQPEq5BZjP8';
+            // script.dataset.iconUrl  = 'http://localhost:5000/pagy/assets/images/pagy-the-frog.png';
+            break;
+          case 'localhost':
+            script.dataset.widgetId = 'djgBhRlpdH8b07oj0Gsaerz69Xfs0FXMuUluyOo2iR4';
+            script.dataset.iconUrl  = 'http://localhost:5000/pagy/assets/images/pagy-the-frog.png';
+            script.dataset.margins  = '{"bottom": "1.48rem", "right": "6rem"}';
+            break;
+          case 'ddnexus.github.io':
+            script.dataset.widgetId = 'HKtFSPZLGiAXOdBWS4rSAxEkqv8czIbJoQdMEwCqgEc';
+            script.dataset.iconUrl  = 'https://ddnexus.github.io/pagy/assets/images/pagy-the-frog.png';
+            script.dataset.margins  = '{"bottom": "1.48rem", "right": "6rem"}';
+            break;
+          default:
+            console.error('Pagy AI - Unknown hostname: ', hostname);
+        }
+        script.async               = true;
+        script.src                 = 'https://widget.gurubase.io/widget.latest.min.js';
+        script.id                  = 'guru-widget-id';
+        script.dataset.text        = 'Pagy AI';
+        script.dataset.bgColor     = '#1f7a1f';
+        script.dataset.lightMode   = 'false';
+        script.dataset.tooltipSide = 'bottom';
+        document.head.appendChild(script);
+      }
+      loadWidget();
+
+      function editChatWidget() {
+        const hostId              = 'gurubase-chat-widget-container',
+              imgSelector         = '#chatWindow > div.anteon-header > div > img',
+              nameSelector        = '#chatWindow > div.anteon-header > div > span',
+              descriptionSelector = '#chatWindow > div.chat-messages > div > p',
+              newImgSize          = '40px',
+              newName             = 'Ask Pagy AI',
+              newDescription      = 'Pagy AI uses the latest data in the documentation to answer your questions.';
+
+        const checkAndEdit   = () => {
+          const hostElement = document.getElementById(hostId);
+          if (hostElement && hostElement.shadowRoot) {
+            const shadowRoot  = hostElement.shadowRoot,
+                  img         = shadowRoot.querySelector(imgSelector),
+                  name        = shadowRoot.querySelector(nameSelector),
+                  description = shadowRoot.querySelector(descriptionSelector);
+            if (img) {
+              img.style.maxWidth  = newImgSize;
+              img.style.maxHeight = newImgSize;
+            }
+            if (name) {
+              name.textContent = newName;
+            }
+            if (description) {
+              description.textContent = newDescription;
+            }
+            return true;
           }
-          script.async               = true;
-          script.src                 = 'https://widget.gurubase.io/widget.latest.min.js';
-          script.id                  = 'guru-widget-id';
-          script.dataset.text        = 'Pagy AI';
-          script.dataset.bgColor     = '#1f7a1f';
-          script.dataset.lightMode   = 'false';
-          script.dataset.tooltipSide = 'bottom';
-          document.head.appendChild(script);
-        }
-        loadWidget();
-
-        function editChatWidget() {
-          const hostId              = 'gurubase-chat-widget-container',
-                imgSelector         = '#chatWindow > div.anteon-header > div > img',
-                nameSelector        = '#chatWindow > div.anteon-header > div > span',
-                descriptionSelector = '#chatWindow > div.chat-messages > div > p',
-                newImgSize          = '40px',
-                newName             = 'Ask Pagy AI',
-                newDescription      = 'Pagy AI uses the latest data in the documentation to answer your questions.';
-
-          const checkAndEdit   = () => {
-            const hostElement = document.getElementById(hostId);
-            if (hostElement && hostElement.shadowRoot) {
-              const shadowRoot  = hostElement.shadowRoot,
-                    img         = shadowRoot.querySelector(imgSelector),
-                    name        = shadowRoot.querySelector(nameSelector),
-                    description = shadowRoot.querySelector(descriptionSelector);
-              if (img) {
-                img.style.maxWidth  = newImgSize;
-                img.style.maxHeight = newImgSize;
-              }
-              if (name) {
-                name.textContent = newName;
-              }
-              if (description) {
-                description.textContent = newDescription;
-              }
-              return true;
-            }
-            return false;
-          };
-          const attemptEditing = () => {
-            if (checkAndEdit()) {
-              return;
-            }
-            setTimeout(attemptEditing, 200);
-          };
-          attemptEditing();
-        }
-        editChatWidget();
-      });
+          return false;
+        };
+        const attemptEditing = () => {
+          if (checkAndEdit()) {
+            return;
+          }
+          setTimeout(attemptEditing, 200);
+        };
+        attemptEditing();
+      }
+      editChatWidget();
+    }
+    );
     </script>
     <!-- ai_widget_end -->
     <style>
@@ -173,7 +174,7 @@
                                 <img class="max-h-10 hidden dark:inline-block" src="../assets/images/pagy-the-frog.png">
                             </span>
                             <span class="dark:text-white font-bold line-clamp-1 md:line-clamp-2">Pagy</span>
-                        </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">43.0.0</span>
+                        </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">43.0.0-pre.1</span>
                     </div>
         
                     <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
@@ -381,7 +382,7 @@ expect the old/deprecated functionality to be supported ONLY during the current 
         <span>Recommended Version Constraint</span>
     </h2>
 </doc-anchor-target>
-<p>Given a version number <code v-pre>MAJOR.MINOR.PATCH</code> (e.g. <code v-pre>43.0.0</code>):</p>
+<p>Given a version number <code v-pre>MAJOR.MINOR.PATCH</code> (e.g. <code v-pre>43.0.0-pre.1</code>):</p>
 <p>The <code v-pre>gem 'pagy', '~&gt; 43.0'</code> Gemfile entry (without the PATCH number) ensures that the <code v-pre>bundle update</code> command will update pagy to
 the most recent version WITHOUT BREAKING CHANGES.</p>
 <p>Increment the MAJOR version in your Gemfile ONLY when you are ready to handle the BREAKING CHANGES.</p>
@@ -393,7 +394,6 @@ the most recent version WITHOUT BREAKING CHANGES.</p>
 </doc-anchor-target>
 <p>If you upgrade from version <code v-pre>&lt; 43.0.0</code> see the following:</p>
 <ul>
-<li><doc-anchor-trigger to="#version-1000">Breaking changes in version 43.0.0</doc-anchor-trigger></li>
 <li><a href="../changelog_legacy/#version-900">Breaking changes in version 9.0.0</a></li>
 <li><a href="../changelog_legacy/#version-800">Breaking changes in version 8.0.0</a></li>
 <li><a href="../changelog_legacy/#version-700">Breaking changes in version 7.0.0</a></li>
@@ -412,55 +412,15 @@ the most recent version WITHOUT BREAKING CHANGES.</p>
 </doc-anchor-target>
 <p>None</p>
 <hr>
-<doc-anchor-target id="version-4300-leap">
+<doc-anchor-target id="version-4300-pre1">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#version-4300-leap">#</doc-anchor-trigger>
-        <span>Version 43.0.0 (leap)</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#version-4300-pre1">#</doc-anchor-trigger>
+        <span>Version 43.0.0-pre.1</span>
     </h2>
 </doc-anchor-target>
 <p>We needed a leap version to unequivocally segnaling that it&#x27;s not just a major version: it&#x27;s a complete redesign of the legacy
 code at all levels, usage and API included.</p>
 <p><strong>Why 43?</strong> Because it&#x27;s exactly one step beyond <em>&quot;The answer to the ultimate question of life, the Universe, and everything.&quot;</em> <span class="docs-emoji">&#x1F609;</span></p>
-<doc-anchor-target id="improvements">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#improvements">#</doc-anchor-trigger>
-        <span>Improvements</span>
-    </h4>
-</doc-anchor-target>
-<ul>
-<li><strong>New <a href="https://ddnexus.github.io/pagy/toolbox/paginators/keynav_js">Keynav</a> Pagination</strong>
-<ul>
-<li>The pagy-exclusive technique using the fastest <a href="https://ddnexus.github.io/pagy/toolbox/paginators/keyset">keyset</a> pagination alongside all frontend helpers.</li>
-</ul>
-</li>
-<li><strong>New interactive dev-tools</strong>
-<ul>
-<li>New <a href="https://ddnexus.github.io/pagy/resources/stylesheets/#pagy-wand">PagyWand</a> to integrate the pagy CSS with your app&#x27;s themes.</li>
-<li>New <strong>Pagy AI</strong> available inside docs and your own app.</li>
-</ul>
-</li>
-<li><strong>Intelligent automation</strong>
-<ul>
-<li><a href="https://ddnexus.github.io/pagy/resources/initializer/">Configuration</a> requirements reduced by 99%.</li>
-<li>Simplified <a href="https://ddnexus.github.io/pagy/resources/javascript">JavaScript</a> setup.</li>
-<li>Automatic <a href="https://ddnexus.github.io/pagy/resources/i18n">I18n</a> loading.</li>
-</ul>
-</li>
-<li><strong><a href="https://github.com/ddnexus/pagy#examples">Simpler API</a></strong>
-<ul>
-<li>You solely need the <a href="https://ddnexus.github.io/pagy/toolbox/paginators">pagy</a> method and the <a href="https://ddnexus.github.io/pagy/toolbox/helpers">@pagy</a> instance to paginate any collection and
-use any navigation tag and helper.</li>
-<li>Methods are autoloaded only if used and consume no memory otherwise.</li>
-<li>Methods have narrower scopes and can be <a href="https://ddnexus.github.io/pagy/guides/how-to#override-pagy-methods">overridden</a> without deep knowledge.</li>
-</ul>
-</li>
-<li><strong>New <a href="https://ddnexus.github.io/pagy/guides/quick-start">documentation</a></strong>
-<ul>
-<li>Very concise, straightforward, easy to navigate and understand.</li>
-</ul>
-</li>
-</ul>
-<p>Take a look at the <a href="https://github.com/ddnexus/pagy#examples">Examples</a> for a quick overview.</p>
 <doc-anchor-target id="breaking-changes-1">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#breaking-changes-1">#</doc-anchor-trigger>
@@ -468,10 +428,10 @@ use any navigation tag and helper.</li>
     </h2>
 </doc-anchor-target>
 <p>See the <a href="../guides/upgrade-guide/">Upgrade Guide</a></p>
-<doc-anchor-target id="changes-tldr">
+<doc-anchor-target id="changes">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#changes-tldr">#</doc-anchor-trigger>
-        <span>Changes (TL;DR)</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#changes">#</doc-anchor-trigger>
+        <span>Changes</span>
     </h2>
 </doc-anchor-target>
 <ul>

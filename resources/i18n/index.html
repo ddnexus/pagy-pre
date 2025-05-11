@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/pagy">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.8.1.800156048523">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.8.1.800250022924">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.8.1">
@@ -31,12 +31,12 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.8.1.800156048523" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.8.1.800250022924" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.8.1.800156048523" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.8.1.800250022924" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.8.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.8.1.800156048523" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.8.1.800156048523" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.8.1.800250022924" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.8.1.800250022924" defer></script>
 
     <!-- ai_widget_start -->
     <script>
@@ -392,13 +392,34 @@ gem!</p>
 These files adopt the same structure as the standard locale files for the <code v-pre>i18n</code> gem, allowing you to use them seamlessly with both
 systems.</p>
 <doc-panels>
-   <doc-panel id="configuration-for-multilingual-applications" collapsed>
-       <template #title>Configuration for multilingual applications</template>
-<p>The default <code v-pre>Pagy::I18n.locale</code> is <code v-pre>'en'</code>.</p>
-<p>For applications with multiple locales, you must set the <code v-pre>Pagy::I18n.locale</code> for each request. For instance, in a Rails application, you can implement this as follows:</p>
+   <doc-panel id="dictionary-file-example" collapsed>
+       <template #title>Dictionary file example</template>
 <div class="codeblock-wrapper"><doc-codeblock>
-<div class="codeblock-title">Controller</div>
-<pre class="language-ruby"><code v-pre class="language-ruby">before_action { Pagy::I18n.locale = params[:locale] }</code></pre>
+<div class="codeblock-title">en.yml</div>
+<pre class="language-yaml"><code v-pre class="language-yaml"># See https://ddnexus.github.io/pagy/resources/i18n
+
+en:
+  pagy:
+    p11n: 'OneOther'
+    aria_label:
+      nav:
+        one: &quot;Page&quot;
+        other: &quot;Pages&quot;
+      previous: &quot;Previous&quot;
+      next: &quot;Next&quot;
+    previous: &quot;&amp;lt;&quot;
+    next: &quot;&amp;gt;&quot;
+    gap: &quot;&amp;hellip;&quot;
+    item_name:
+      one: &quot;item&quot;
+      other: &quot;items&quot;
+    info_tag:
+      no_count: &quot;Page %{page} of %{pages}&quot;
+      no_items: &quot;No %{item_name} found&quot;
+      single_page: &quot;Displaying %{count} %{item_name}&quot;
+      multiple_pages: &quot;Displaying %{item_name} %{from}-%{to} of %{count} in total&quot;
+    input_nav_js: &quot;Page %{page_input} of %{pages}&quot;
+    limit_tag_js: &quot;Show %{limit_input} %{item_name} per page&quot;</code></pre>
 </doc-codeblock></div>
    </doc-panel>
    <doc-panel id="customizing-dictionaries" collapsed>
@@ -407,6 +428,15 @@ systems.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-ruby"><code v-pre class="language-ruby"># Example for Rails:
 Pagy::I18n.pathnames &lt;&lt; Rails.root.join('config/locales')</code></pre>
+</doc-codeblock></div>
+   </doc-panel>
+   <doc-panel id="configuration-for-multilingual-applications" collapsed>
+       <template #title>Configuration for multilingual applications</template>
+<p>The default <code v-pre>Pagy::I18n.locale</code> is <code v-pre>'en'</code>.</p>
+<p>For applications with multiple locales, you must set the <code v-pre>Pagy::I18n.locale</code> for each request. For instance, in a Rails application, you can implement this as follows:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">Controller</div>
+<pre class="language-ruby"><code v-pre class="language-ruby">before_action { Pagy::I18n.locale = params[:locale] }</code></pre>
 </doc-codeblock></div>
    </doc-panel>
    <doc-panel id="using-the-i18n-gem" collapsed>
